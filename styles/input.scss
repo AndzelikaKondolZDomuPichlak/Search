@@ -1,0 +1,155 @@
+@use "variables" as *;
+
+.search {
+  width: 370px;
+  padding: 22px 18px;
+  border: 1px solid $color-gray-300;
+  border-radius: $radius;
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    outline: none;
+
+    & ~ .search__label {
+      top: 0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__inner {
+    position: relative;
+    margin-top: 200px;
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__label {
+    color: $color-gray-400;
+    font-size: 13px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    padding: 0 8px;
+    background: $white;
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+  }
+
+  &__spinner {
+    @include hidden-visible-state;
+    position: absolute;
+    top: 50%;
+    right: 45px;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+
+    &--visible {
+      @include visible-state;
+    }
+  }
+
+  &__output-wrapper {
+    margin-top: 10px;
+  }
+
+  &__results {
+    @include hidden-visible-state;
+    position: relative;
+    width: 370px;
+    padding: 0 20px;
+    margin: 0;
+    list-style: none;
+    background-color: $color-gray-100;
+    border-radius: $radius;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 24px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid $color-gray-100;
+    }
+
+    &--visible {
+      @include visible-state;
+    }
+  }
+
+  &__result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid $color-gray-200;
+
+    &:first-of-type {
+      border-top: none;
+    }
+  }
+
+  &__product-name {
+    font-weight: 400;
+  }
+
+  &__product-price {
+    font-weight: 500;
+  }
+
+  &__message {
+    color: $red;
+  }
+
+  &__reset {
+    @include hidden-visible-state;
+    height: 46px;
+    width: 46px;
+    position: absolute;
+    top: 50%;
+    right: 45px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    &--visible {
+      @include visible-state;
+      transition-delay: 0.4s;
+    }
+  }
+}
