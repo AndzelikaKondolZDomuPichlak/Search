@@ -8,20 +8,19 @@
     <title>Search</title>
   </head>
   <body>
-    <div class="search__wrapper">
-      <div class="search__inner">
-        <input type="text" class="search" id="input" placeholder=" " />
+    <div id="component">
+      <div class="search">
+        <input type="text" class="search__input" placeholder=" " />
         <label class="search__label">Search</label>
         <img
           src="/images/icons/spinner.svg"
           alt="Search"
           class="search__spinner"
-          id="spinner"
         />
-        <button id="resetButton" class="search__reset">
+        <button class="search__reset">
           <img src="/images/icons/close.png" alt="Reset" class="search__icon" />
         </button>
-        <button type="submit" class="search__button" id="search" disabled>
+        <button type="submit" class="search__button" disabled>
           <img
             src="/images/icons/search.png"
             alt="Search"
@@ -30,8 +29,8 @@
         </button>
       </div>
       <div class="search__output-wrapper">
-        <ul id="results" class="search__results"></ul>
-        <p id="message" class="search__message"></p>
+        <ul class="search__results"></ul>
+        <p class="search__message"></p>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
